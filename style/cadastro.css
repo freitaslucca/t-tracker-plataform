@@ -1,0 +1,172 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    background-color: #011c35;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 100vh;
+    flex-wrap: wrap;
+  }
+  
+  .image-card {
+    width: 50%;
+    height: 100vh;
+    background-color: #011c35;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #f5a623;
+    position: sticky; 
+    top: 0;
+  }
+  
+  .logo {
+    height: 150px;
+    margin-bottom: 20px;
+  }
+  
+  .card {
+    width: 50%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 0;
+    box-sizing: border-box;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  
+  .card-cadastro {
+    background-color: #fff;
+    margin: 0 auto;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  .card-cadastro h2 {
+    color: #011c35;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .card-cadastro label {
+    color: #011c35;
+    font-weight: bold;
+    display: block;
+    margin-top: 15px;
+  }
+  
+  .card-cadastro input,
+  .card-cadastro select {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #c0c5cc;
+    border-radius: 5px;
+    margin-top: 5px;
+    font-size: 14px;
+  }
+  .card::-webkit-scrollbar {
+    width: 6px;
+  }
+  .card::-webkit-scrollbar-thumb {
+    background-color: #c0c5cc;
+    border-radius: 10px;
+  }
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 30px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #c0c5cc;
+    border-radius: 5px;
+    font-size: 14px;  
+}
+  
+  .button-cadastro {
+    width: 100%;
+    padding: 12px;
+    margin-top: 25px;
+    background-color: #f5a623;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .button-cadastro:hover {
+    background-color: #e6951c;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    body {
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+  
+    .content {
+      flex-direction: column;
+      height: 100vh;
+    }
+  
+    .image-card {
+      width: 100%;
+      height: 100px;
+      padding: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+  
+    .logo {
+      height: 80px;
+      margin: 0;
+    }
+  
+    .card {
+      width: 100%;
+      height: calc(100vh - 100px); /* Altura restante abaixo do logo */
+      margin-top: 100px; /* Para não ficar escondido atrás do logo */
+      overflow-y: auto;
+      padding: 20px 0;
+    }
+  
+    .card-cadastro {
+      padding: 20px;
+      width: 90%;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+    .form-grid {
+        grid-template-columns: 1fr;
+      }
+  }
