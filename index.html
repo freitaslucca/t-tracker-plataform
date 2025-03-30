@@ -1,60 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>T-Tracker</title>
-  <style>
-    body {
-      margin: 0;
-      background-color: #0B1D33;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      color: white;
-      font-family: 'Segoe UI', sans-serif;
-    }
-
-    .logo {
-      height: 120px;
-      margin-bottom: 20px;
-    }
-
-    .loader {
-      width: 80px;
-      height: 8px;
-      background: #F5A623;
-      border-radius: 10px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .loader::before {
-      content: "";
-      position: absolute;
-      width: 40%;
-      height: 100%;
-      background-color: white;
-      animation: load 1.2s infinite ease-in-out;
-    }
-
-    @keyframes load {
-      0%   { left: -40%; }
-      50%  { left: 100%; }
-      100% { left: 100%; }
-    }
-  </style>
-</head>
-<body>
-  <img src="assets/logositeteste.png" alt="Logo T-Tracker" class="logo" />
-  <div class="loader"></div>
-
-  <script>
-    setTimeout(() => {
-      window.location.href = "/src/login.html";
-    }, 2000); 
-  </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="0; url=/src/login.html" />
+    <title>Redirecionando para login...</title>
+  </head>
+  <body>
+    <p>Redirecionando para o login...</p>
+  </body>
 </html>
