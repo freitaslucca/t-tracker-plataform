@@ -37,7 +37,7 @@ btn.addEventListener("click", async () => {
   }
 
   try {
-    const response = await fetch("http://localhost:3000/cadastro", {
+    const response = await fetch("https://ttracker-backend.onrender.com/cadastro", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
