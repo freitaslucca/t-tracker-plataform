@@ -13,27 +13,38 @@
         <div class="image-card">
             <img src="../assets/logositeteste.png" class="logo">
         </div>
-            <div class="card">
-                <div class="card-login"> 
-                    <h2>
-                        Login
-                    </h2>
-                    <div class="email">
-                        <label>E-mail:</label>
-                        <input type="email" id="email" placeholder="E-mail">
-                    </div>
-                    <div class="password">
-                        <label>Senha:</label>
-                        <input type="password" id="password" placeholder="Senha"></div>
-                        <button class="button-login" type="submit">Login</button>
-                        <span class="forgot-pass">Esqueci minha senha</span>
-                        <span>
-                            Não tem uma conta? <a href="cadastro.html" class="link-destaque">Criar conta</a>
-                        </span>
-                    </div>
+        <div class="card">
+            <div class="card-login">
+                <h2>
+                    Login
+                </h2>
+                <div class="email">
+                    <label>E-mail:</label>
+                    <input type="email" id="email" placeholder="E-mail">
+                </div>
+                <div class="password">
+                    <label>Senha:</label>
+                    <input type="password" id="password" placeholder="Senha"></div>
+                <button class="button-login" type="button">Login</button>
+                <span class="forgot-pass">Esqueci minha senha</span>
+                <span>
+                    Não tem uma conta? <a href="cadastro.html" class="link-destaque">Criar conta</a>
+                </span>
+            </div>
 
         </div>
-    </div>  
+    </div>
+    <div id="popup" class="popup hidden">
+        <div class="popup-content">
+          <div class="popup-message">
+            <p id="popup-message">Cadastro realizado com sucesso!</p>
+            <div class="caminhao-container">
+              <img src="../assets/truck.png" alt="Caminhão animado" class="caminhao-img" />
+            </div>
+          </div>
+        </div>
+      </div>
+    <script src="../script/login.js"></script>
 </body>
 
 </html>
