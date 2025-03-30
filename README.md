@@ -1,41 +1,117 @@
-# T-Tracker
+# 🛡️ T-Tracker Backend
 
-**T-Tracker** é uma plataforma web voltada para o gerenciamento de frotas de caminhões. Seu principal objetivo é oferecer aos donos de transportadoras e gestores logísticos uma solução prática, eficiente e centralizada para acompanhar cada detalhe das operações de transporte, promovendo mais controle, economia e segurança.
+API desenvolvida para a plataforma **T-Tracker**, focada em gestão de frotas com segurança, escalabilidade e performance.
 
-## 🚚 Funcionalidades principais
+---
 
-- Cadastro e gerenciamento de caminhões e motoristas
-- Registro completo de viagens: origem, destino, km rodado, tempo e valor do frete
-- Cálculo de custos da viagem, incluindo combustível e manutenção
-- Controle de horas rodadas dos motoristas, com alertas preventivos
-- Painel com rentabilidade por viagem e relatórios gerenciais
-- Sistema de alerta de manutenção, incluindo troca de pneus
+## 🚀 Tecnologias Utilizadas
 
-## 💡 Objetivo do projeto
+- **Node.js**
+- **Fastify**
+- **MongoDB Atlas**
+- **Mongoose**
+- **JWT (JSON Web Token)**
+- **bcryptjs**
+- **dotenv**
+- **Render (Hospedagem gratuita)**
+- **Helmet** – proteção contra vulnerabilidades HTTP
+- **Rate Limit** – limite de requisições por IP
+- **CORS** – controle de acesso por origem
 
-Oferecer uma plataforma acessível e intuitiva para transportadoras de pequeno e médio porte acompanharem o desempenho de sua frota em tempo real, otimizando processos e evitando prejuízos operacionais.
+---
 
-## 🛠 Tecnologias utilizadas
+## 📁 Estrutura de Pastas
 
-- HTML5
-- CSS3
-- JavaScript
+```
+ttracker-backend/
+├── server.js
+├── .env
+├── package.json
+└── src/
+    ├── controllers/
+    │   └── user.controller.js
+    ├── models/
+    │   └── User.js
+    └── routes/
+        └── user.routes.js
+```
 
-> Futuramente: Node.js (backend), banco de dados relacional e possivelmente integração com GPS.
+---
 
-## 🚀 Status do projeto
+## 🧾 Variáveis de Ambiente (.env)
 
-Em desenvolvimento contínuo — MVP em construção.
+```env
+PORT=3000
+MONGO_URI=mongodb+srv://<usuario>:<senha>@<cluster>.mongodb.net/?retryWrites=true&w=majority
+JWT_SECRET=uma_chave_segura
+```
 
-## 📁 Estrutura inicial
+---
 
-t-tracker/
-├── index.html
-├── css/
-│   └── style.css
-├── js/
-│   └── main.js
-├── img/
-│   └── logo.png
-├── README.md
-└── .gitignore
+## 🔐 Funcionalidades de Segurança
+
+- Criptografia de senha com `bcryptjs`
+- Geração de token JWT após login
+- Proteção contra ataques com:
+  - `@fastify/helmet`
+  - `@fastify/rate-limit`
+- CORS configurado para:
+  - `http://localhost:5500`
+  - `http://127.0.0.1:5500`
+  - `https://ttracker-murex.vercel.app`
+
+---
+
+## 📮 Rotas da API
+
+| Método | Rota        | Descrição                        |
+|--------|-------------|----------------------------------|
+| POST   | /cadastro   | Cria um novo usuário             |
+| POST   | /login      | Autentica usuário e gera token   |
+| GET    | /           | (opcional) Verifica status da API|
+
+---
+
+## 🔄 Integração com o Frontend
+
+### 📌 Atualização importante:
+Após hospedar a API na Render, o frontend passou a usar a URL:
+
+```
+https://ttracker-backend.onrender.com
+```
+
+### Exemplo no `login.js`:
+
+```js
+fetch("https://ttracker-backend.onrender.com/login", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({ email, senha })
+});
+```
+
+E no `cadastro.js`:
+
+```js
+fetch("https://ttracker-backend.onrender.com/cadastro", {
+  method: "POST",
+  ...
+});
+```
+
+---
+
+## 🛠️ Hospedagem (Render)
+
+- Conectado ao GitHub
+- Variáveis de ambiente configuradas via painel Render
+- URL da API: [https://ttracker-backend.onrender.com](https://ttracker-backend.onrender.com)
+
+---
+
+## ✅ Última atualização
+
+30/03/2025 - 02:27
