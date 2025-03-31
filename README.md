@@ -1,117 +1,84 @@
-# 🛡️ T-Tracker Backend
+# 🚚 T-Tracker Frontend
 
-API desenvolvida para a plataforma **T-Tracker**, focada em gestão de frotas com segurança, escalabilidade e performance.
+Interface web desenvolvida para a plataforma **T-Tracker**, voltada ao gerenciamento de frotas de caminhões, ônibus e carros.
 
 ---
 
-## 🚀 Tecnologias Utilizadas
+## 🎯 Objetivo
 
-- **Node.js**
-- **Fastify**
-- **MongoDB Atlas**
-- **Mongoose**
-- **JWT (JSON Web Token)**
-- **bcryptjs**
-- **dotenv**
-- **Render (Hospedagem gratuita)**
-- **Helmet** – proteção contra vulnerabilidades HTTP
-- **Rate Limit** – limite de requisições por IP
-- **CORS** – controle de acesso por origem
+Oferecer uma experiência simples, moderna e responsiva para:
+- Cadastro de novos clientes
+- Login seguro com validação
+- Redirecionamento inteligente com splashscreen
+- Layout adaptável a desktop e mobile
 
 ---
 
 ## 📁 Estrutura de Pastas
 
 ```
-ttracker-backend/
-├── server.js
-├── .env
-├── package.json
-└── src/
-    ├── controllers/
-    │   └── user.controller.js
-    ├── models/
-    │   └── User.js
-    └── routes/
-        └── user.routes.js
+ttracker-frontend/
+├── index.html
+├── login.html
+├── cadastro.html
+├── dashboard.html
+├── loading.html
+├── style/
+│   ├── login.css
+│   └── cadastro.css
+├── js/
+│   ├── login.js
+│   └── cadastro.js
+└── assets/
+    └── logositeteste.png
 ```
 
 ---
 
-## 🧾 Variáveis de Ambiente (.env)
+## 🧪 Funcionalidades
 
-```env
-PORT=3000
-MONGO_URI=mongodb+srv://<usuario>:<senha>@<cluster>.mongodb.net/?retryWrites=true&w=majority
-JWT_SECRET=uma_chave_segura
-```
+### ✅ Login
+- Verifica campos obrigatórios
+- Envia dados via `fetch()` para a API
+- Exibe splashscreen com caminhão animado ao logar
+- Redireciona para `dashboard.html` após sucesso
 
----
+### 🆕 Cadastro
+- Campos obrigatórios validados
+- Comparação de senha e confirmação
+- Redireciona para tela de login com splash
 
-## 🔐 Funcionalidades de Segurança
+### 🎨 UI Responsiva
+- Layout em grid no desktop
+- Ajustes para mobile com o logo fixo e form scrollável
+- Paleta de cores oficial do T-Tracker:
+  - Azul escuro `#011c35`
+  - Laranja queimado `#f5a623`
+  - Branco `#ffffff`
+  - Cinza claro `#c0c5cc`
 
-- Criptografia de senha com `bcryptjs`
-- Geração de token JWT após login
-- Proteção contra ataques com:
-  - `@fastify/helmet`
-  - `@fastify/rate-limit`
-- CORS configurado para:
-  - `http://localhost:5500`
-  - `http://127.0.0.1:5500`
-  - `https://ttracker-murex.vercel.app`
-
----
-
-## 📮 Rotas da API
-
-| Método | Rota        | Descrição                        |
-|--------|-------------|----------------------------------|
-| POST   | /cadastro   | Cria um novo usuário             |
-| POST   | /login      | Autentica usuário e gera token   |
-| GET    | /           | (opcional) Verifica status da API|
+### 🪟 Popups
+- Estilizados com fundo escuro e cores da marca
+- Mensagens de erro e sucesso
+- Caminhão animado dentro do popup para reforçar identidade
 
 ---
 
-## 🔄 Integração com o Frontend
+## 🌐 Integração com Backend
 
-### 📌 Atualização importante:
-Após hospedar a API na Render, o frontend passou a usar a URL:
-
-```
-https://ttracker-backend.onrender.com
-```
-
-### Exemplo no `login.js`:
-
-```js
-fetch("https://ttracker-backend.onrender.com/login", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify({ email, senha })
-});
-```
-
-E no `cadastro.js`:
-
-```js
-fetch("https://ttracker-backend.onrender.com/cadastro", {
-  method: "POST",
-  ...
-});
-```
+- Backend hospedado em: [`https://ttracker-backend.onrender.com`](https://ttracker-backend.onrender.com)
+- Arquivos `.js` utilizam `fetch()` com essa URL para login e cadastro
 
 ---
 
-## 🛠️ Hospedagem (Render)
+## 🔐 Segurança
 
-- Conectado ao GitHub
-- Variáveis de ambiente configuradas via painel Render
-- URL da API: [https://ttracker-backend.onrender.com](https://ttracker-backend.onrender.com)
+- Nenhum dado sensível armazenado no frontend
+- Token JWT armazenado no `localStorage` (com possibilidade futura de uso de HttpOnly Cookies)
+- Backend protegido com CORS e rate limit
 
 ---
 
 ## ✅ Última atualização
 
-30/03/2025 - 02:27
+31/03/2025 - 15:46
