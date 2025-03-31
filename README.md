@@ -82,3 +82,50 @@ ttracker-frontend/
 ## ✅ Última atualização
 
 31/03/2025 - 15:46
+
+## 📌 Funcionalidades Planejadas para a Plataforma T-Tracker
+
+A seguir, uma lista com as principais funcionalidades previstas para o sistema:
+
+### 🧑‍💼 Gestão de Usuários
+- Cadastro de cliente com validações
+- Login com autenticação via JWT
+- Tela de dashboard após login
+
+### 🚚 Gestão de Frota
+- Cadastro de veículos da frota
+- Registro de tipo: caminhão, ônibus ou carro
+- Visualização da lista de veículos
+- Edição e remoção de veículos
+
+### 🛣️ Controle de Rotas
+- Cadastro de rotas definidas pelo supervisor
+- Alerta quando o motorista sair da rota
+- Histórico de rotas percorridas nos últimos 30 dias
+
+### ⏱️ Controle de Quilometragem e Horas Rodadas
+- Registro automático ou manual de km inicial e final
+- Cálculo de distância e horas trabalhadas por veículo
+
+### 💰 Cálculo de Custos
+- Cálculo de custo de frete por rota
+- Relatórios de consumo de combustível
+- Controle de manutenções (agendadas e realizadas)
+
+### 📊 Dashboard Inteligente
+- Gráficos de desempenho da frota
+- Indicadores de uso, custo e eficiência
+- Alertas de manutenção e desvio de rota
+
+### 🔒 Segurança
+- Acesso autenticado com JWT
+- Limite de requisições por tempo (rate limiting)
+- Política de CORS configurada
+- Senhas criptografadas no banco
+
+### 📱 Responsividade
+- Interface mobile-first com adaptação para desktop
+- Splashscreen com logo e animações
+- Popups customizados com identidade visual da marca
+
+---
