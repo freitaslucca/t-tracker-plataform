@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>T-Tracker Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="../style/dashboard.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <nav class="sidebar" id="sidebar">
+    <button class="close-btn" onclick="toggleSidebar()">×</button>
+    <ul>
+      <li><a href="#">Dashboard</a></li>
+      <li><a href="#">Relatórios</a></li>
+      <li><a href="#">Configurações</a></li>
+      <li><a href="rastreio.html">Rastreamento</a></li>
+    </ul>
+  </nav>
+  <header>
+    <button class="hamburger" onclick="toggleSidebar()">☰</button>
+    T-Tracker
+  </header>
+
+  <section class="cards-container">
+    <div class="card">
+      <div class="card-content">
+        <i class="fas fa-truck icon"></i>
+        <div class="card-text">
+          <h3>Veículos Ativos</h3>
+          <p>12</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="card">
+      <div class="card-content">
+        <i class="fas fa-user-tie icon"></i>
+        <div class="card-text">
+          <h3>Funcionários Rodando</h3>
+          <p>8</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="card">
+      <div class="card-content">
+        <i class="fas fa-exclamation-triangle icon"></i>
+        <div class="card-text">
+          <h3>Alertas Recentes</h3>
+          <p>3</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="card">
+      <div class="card-content">
+        <i class="fas fa-tools icon"></i>
+        <div class="card-text">
+          <h3>Manutenções Próximas</h3>
+          <p>5</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="main-content">
+    <div class="map-section">
+      <div id="map" class="map"></div>
+    </div>
+    <div class="status-resumido">
+                <div class="status-card resumo-diario">
+            <h3>Resumo Diário</h3>
+            <div class="resumo-item">
+              <i class="fas fa-road resumo-icon"></i>
+              <div>
+                <p class="resumo-titulo">Total Rodado Hoje</p>
+                <p class="resumo-valor">🚛 660 km</p>
+              </div>
+            </div>
+            <div class="resumo-item">
+              <i class="fas fa-user-clock resumo-icon"></i>
+              <div>
+                <p class="resumo-titulo">Tempo Médio de Viagem</p>
+                <p class="resumo-valor">🕒 3h 10min</p>
+              </div>
+            </div>
+            <div class="resumo-item">
+              <i class="fas fa-trophy resumo-icon"></i>
+              <div>
+                <p class="resumo-titulo">Top Funcionário</p>
+                <p class="resumo-valor">🏁 Carlos Lima (300 km)</p>
+              </div>
+            </div>
+          </div>
+        <div class="status-card">
+          <h3>Status dos Veículos</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Status</th>
+                <th>Qtd</th>
+                <th>Última Atualização</th>
+                <th>%</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>✔️ OK</td>
+                <td>5</td>
+                <td>10 min atrás</td>
+                <td>41%</td>
+              </tr>
+              <tr>
+                <td>🔧 Manutenção</td>
+                <td>2</td>
+                <td>25 min atrás</td>
+                <td>17%</td>
+              </tr>
+              <tr>
+                <td>⚠️ Alerta</td>
+                <td>1</td>
+                <td>5 min atrás</td>
+                <td>8%</td>
+              </tr>
+              <tr>
+                <td>😴 Descanso</td>
+                <td>1</td>
+                <td>2h atrás</td>
+                <td>8%</td>
+              </tr>
+              <tr>
+                <td>🚚 Rodando</td>
+                <td>3</td>
+                <td>3 min atrás</td>
+                <td>25%</td>
+              </tr>
+            </tbody>
+          </table>
+          <canvas id="grafico-status" height="150"></canvas> </div>
+  </section>
+
+  <section class="bottom-section">
+    <div class="chart">
+      <h3>Consumo de Combustível</h3>
+      <p>(Gráfico de linha aqui)</p>
+    </div>
+    <div class="activity-table">
+      <h3>Atividade Recente</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Funcionário</th>
+            <th>Status</th>
+            <th>Distância</th>
+            <th>Tempo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>João Silva</td>
+            <td>Rodando</td>
+            <td>240km</td>
+            <td>3h</td>
+          </tr>
+          <tr>
+            <td>Maria Souza</td>
+            <td>Parado</td>
+            <td>120km</td>
+            <td>1h 30min</td>
+          </tr>
+          <tr>
+            <td>Carlos Lima</td>
+            <td>Rodando</td>
+            <td>300km</td>
+            <td>4h</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div id="alert-container" class="alert-container"></div>
+  <script src="../script/dashboard.js"></script>
+  <script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+</script>
+</body>
+</html>
