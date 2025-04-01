@@ -39,7 +39,7 @@ body {
     background-color: #fff;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     padding: 40px 0;
     box-sizing: border-box;
     height: 100vh;
