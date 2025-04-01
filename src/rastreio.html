@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>T-Tracker Monitoramento</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="stylesheet" type="text/css" href="../style/rastreio.css">
+</head>
+<body>
+  <nav class="sidebar" id="sidebar">
+    <button class="close-btn" onclick="toggleSidebar()">×</button>
+    <ul>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="#">Relatórios</a></li>
+      <li><a href="#">Configurações</a></li>
+    </ul>
+  </nav>
+  <header>
+    <button class="hamburger" onclick="toggleSidebar()">☰</button>
+    Monitoramento em Tempo Real
+  </header>
+  <div class="status-filters">
+    <label class="switch-filter">
+      <span>Rodando</span>
+      <label class="switch">
+        <input type="checkbox" class="status-filter" value="rodando" checked>
+        <span class="slider"></span>
+      </label>
+    </label>
+  
+    <label class="switch-filter">
+      <span>Em Manutenção</span>
+      <label class="switch">
+        <input type="checkbox" class="status-filter" value="em_manutencao" checked>
+        <span class="slider"></span>
+      </label>
+    </label>
+  
+    <label class="switch-filter">
+      <span>Alerta</span>
+      <label class="switch">
+        <input type="checkbox" class="status-filter" value="alerta" checked>
+        <span class="slider"></span>
+      </label>
+    </label>
+  
+    <label class="switch-filter">
+      <span>Descanso</span>
+      <label class="switch">
+        <input type="checkbox" class="status-filter" value="descanso" checked>
+        <span class="slider"></span>
+      </label>
+    </label>
+  
+    <label class="switch-filter">
+      <span>OK</span>
+      <label class="switch">
+        <input type="checkbox" class="status-filter" value="ok" checked>
+        <span class="slider"></span>
+      </label>
+    </label>
+  </div>
+  <div id="alert-container" class="alert-container"></div>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="../script/rastreio.js"></script>
+</body>
+</html>
